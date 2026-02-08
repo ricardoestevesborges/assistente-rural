@@ -1,0 +1,39 @@
+# .NET e Blazor WebAssembly padrão
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.vs/
+.vscode/
+*.log
+*.DS_Store
+*.swp
+*.tmp
+*.bak
+*.ncrunch*
+*.localhistory/
+*.idea/
+*.resharper/
+*.sln.ide
+*.db
+*.sqlite
+*.pdb
+*.mdb
+*.cache
+*.config
+*.TestResults/
+*.publish/
+# Blazor WebAssembly
+wwwroot/dist/
+wwwroot/node_modules/
+# Sistema operacional
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+# Docker
+*.dockerfile
+docker-compose.yml
+# Outros
+.env
