@@ -1,0 +1,153 @@
+@page "/converter"
+
+<h2 style="color:#2e7d32;">Conversor de Unidades</h2>
+<p style="margin-bottom:20px;">Converta entre unidades comuns na agricultura brasileira.</p>
+
+<div class="converter-card">
+    <div class="input-group">
+        <label for="valor">Valor:</label>
+        <input id="valor" @bind="inputValue" type="number" class="input-box" @onkeydown="OnKeyDown" />
+    </div>
+    <div class="input-group switch-row">
+        <label for="from">De:</label>
+        <select id="from" @bind="fromUnit" class="select-box">
+            <option value="kg">Quilograma (kg)</option>
+            <option value="arroba">Arroba</option>
+            <option value="ton">Tonelada (t)</option>
+        </select>
+        <button type="button" class="switch-btn" @onclick="SwitchUnits" title="Trocar De/Para">⇄</button>
+        <label for="to">Para:</label>
+        <select id="to" @bind="toUnit" class="select-box">
+            <option value="kg">Quilograma (kg)</option>
+            <option value="arroba">Arroba</option>
+            <option value="ton">Tonelada (t)</option>
+        </select>
+    </div>
+    <button class="convert-btn" @onclick="Convert">Converter</button>
+
+    @if (result.HasValue)
+    {
+        <div class="result-box">
+            <span>Resultado:</span>
+            <b>@result.Value.ToString("N2") @toUnit</b>
+        </div>
+    }
+</div>
+
+<style>
+.converter-card {
+    background: #fcfcfc;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(46,125,50,0.10);
+    padding: 32px 24px 24px 24px;
+    max-width: 440px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+body {
+    background: linear-gradient(120deg, #e8f5e9 0%, #f9fbe7 100%);
+    min-height: 100vh;
+}
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.input-box, .select-box {
+    padding: 8px 12px;
+    border: 1px solid #bdbdbd;
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+    transition: border 0.2s;
+}
+.input-box:focus, .select-box:focus {
+    border: 1.5px solid #388e3c;
+}
+.switch-row {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+.switch-btn {
+    background: #e0e0e0;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin: 0 8px;
+    transition: background 0.2s;
+}
+.switch-btn:hover {
+    background: #bdbdbd;
+}
+.convert-btn {
+    background: linear-gradient(90deg, #43a047 60%, #66bb6a 100%);
+    color: #fff;
+    border: none;
+    padding: 10px 0;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.2s;
+}
+.convert-btn:hover {
+    background: linear-gradient(90deg, #388e3c 60%, #43a047 100%);
+}
+.result-box {
+    background: #e8f5e9;
+    border-radius: 6px;
+    padding: 12px;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #2e7d32;
+    box-shadow: 0 1px 4px rgba(46,125,50,0.07);
+}
+</style>
+
+@code {
+    private double inputValue;
+    private string fromUnit = "kg";
+    private string toUnit = "arroba";
+    private double? result;
+
+    private void SwitchUnits()
+    {
+        var temp = fromUnit;
+        fromUnit = toUnit;
+        toUnit = temp;
+    }
+
+    private void OnKeyDown(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+        {
+            Convert();
+        }
+    }
+
+    private void Convert()
+    {
+        double valueInKg = fromUnit switch
+        {
+            "kg" => inputValue,
+            "arroba" => inputValue * 15.0,
+            "ton" => inputValue * 1000.0,
+            _ => inputValue
+        };
+        result = toUnit switch
+        {
+            "kg" => valueInKg,
+            "arroba" => valueInKg / 15.0,
+            "ton" => valueInKg / 1000.0,
+            _ => valueInKg
+        };
+    }
+}
