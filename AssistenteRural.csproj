@@ -7,7 +7,6 @@
     <AssemblyName>AssistenteRural</AssemblyName>
     <RootNamespace>AssistenteRural</RootNamespace>
     <PublishTrimmed>false</PublishTrimmed>
-    <StaticWebAssetBasePath>assistente-rural</StaticWebAssetBasePath>
   </PropertyGroup>
 
   <ItemGroup>

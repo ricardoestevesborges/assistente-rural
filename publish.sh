@@ -1,3 +1,4 @@
+dotnet clean
 dotnet publish -c Release
 
 rm -rf docs
