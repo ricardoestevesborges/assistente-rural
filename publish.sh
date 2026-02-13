@@ -1,4 +1,4 @@
-dotnet publish -c Release -p:BaseHref=/assistente-rural/
+dotnet publish -c Release
 
 rm -rf docs
 mkdir docs
