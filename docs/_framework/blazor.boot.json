@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "AssistenteRural",
   "resources": {
-    "hash": "sha256-zXR3iuPz0jJX7Yq86pWC98toih+G4NhOt3HiXac+kSo=",
+    "hash": "sha256-4sU2a6okrYNq6fHJ9lt3NsQQ9KLjHBc2S7P7cluncUg=",
     "jsModuleNative": {
       "dotnet.native.8.0.23.f1p79jqiiz.js": "sha256-NljIbpK/1KCj0+knpX8U77Rbl5kTtfFIuFjK7AuczEw="
     },
@@ -17,7 +17,7 @@
       "icudt_no_CJK.dat": "sha256-L7sV7NEYP37/Qr2FPCePo5cJqRgTXRwGHuwF5Q+0Nfs="
     },
     "assembly": {
-      "AssistenteRural.wasm": "sha256-wpJuZZVxTqxDrk/b5OKTcsbiZ3aMxki/sCB2aoCf+OQ=",
+      "AssistenteRural.wasm": "sha256-rYjaX5fFqJ05CWCq9hP+YxfCZZOFUhR7EiSh7WixK5o=",
       "Microsoft.AspNetCore.Authorization.wasm": "sha256-xbLgo23zTMksJxjHJFYj8DBTC7JDsI7ndgiw6f8gQHw=",
       "Microsoft.AspNetCore.Components.Forms.wasm": "sha256-LbILVu5eVbRuRnxdk4/Jt95EFBBnbYH/z1P8TjVdCYA=",
       "Microsoft.AspNetCore.Components.wasm": "sha256-L0Bi7v5gIjn57r7NV4o8ibIgVvHCirGBsGTsVbVDhic=",
